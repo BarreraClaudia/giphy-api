@@ -1,0 +1,220 @@
+/*
+---------------
+CSS Reset https://www.joshwcomeau.com/css/custom-css-reset/
+---------------
+*/
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* 10. Create a root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* I added the 3 below */
+
+ul {
+  padding-inline-start: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/*
+---------------
+Font size variables
+---------------
+*/
+
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1728,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  /* Step -2: 11.1111px → 12.8px */
+  --step--2: clamp(0.6944rem, 0.6705rem + 0.1199vw, 0.8rem);
+  /* Step -1: 13.3333px → 16px */
+  --step--1: clamp(0.8333rem, 0.7955rem + 0.1894vw, 1rem);
+  /* Step 0: 16px → 20px */
+  --step-0: clamp(1rem, 0.9432rem + 0.2841vw, 1.25rem);
+  /* Step 1: 19.2px → 25px */
+  --step-1: clamp(1.2rem, 1.1176rem + 0.4119vw, 1.5625rem);
+  /* Step 2: 23.04px → 31.25px */
+  --step-2: clamp(1.44rem, 1.3234rem + 0.5831vw, 1.9531rem);
+  /* Step 3: 27.648px → 39.0625px */
+  --step-3: clamp(1.728rem, 1.5659rem + 0.8107vw, 2.4414rem);
+  /* Step 4: 33.1776px → 48.8281px */
+  --step-4: clamp(2.0736rem, 1.8513rem + 1.1115vw, 3.0518rem);
+  /* Step 5: 39.8131px → 61.0352px */
+  --step-5: clamp(2.4883rem, 2.1869rem + 1.5072vw, 3.8147rem);
+}
+
+/*
+---------------
+Layout
+---------------
+*/
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+
+  background-color: #d0d2fc;
+
+  font-size: var(--step-0);
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  color: #5253ff;
+  font-size: var(--step-5);
+  font-family: 'Bagel Fat One', system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gif-icon {
+  width: 100px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.gif {
+  border-radius: 1rem;
+}
+
+button {
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  color: #fff;
+  background-color: #5253ff;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translateY(5px);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid #fff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8690fa;
+}
+
+footer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background-color: #8690fa;
+}
+
+footer a {
+  color: #fff;
+}
