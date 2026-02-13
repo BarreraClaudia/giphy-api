@@ -3,21 +3,20 @@ const img = document.querySelector('.gif');
 const theOfficeURL =
   'https://api.giphy.com/v1/gifs/translate?api_key=WS8fTduxDBNQSn038pJMdV9KDMJ92HNG&s=theoffice';
 
-function getGif(url) {
-  fetch(url)
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      } else {
-        return response.json();
-      }
-    })
-    .then(function (response) {
-      img.src = response.data.images.original.url;
-    })
-    .catch((e) => {
-      console.log(`ERROR: ${e}`);
-    });
+async function getGif(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const gifData = await response.json();
+
+    img.src = gifData.data.images.original.url;
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+  }
 }
 
 getGif(theOfficeURL);
