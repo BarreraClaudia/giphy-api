@@ -1,6 +1,6 @@
 # GIPHY API
 
-Click on "The Office GIFs" button to fetch Office GIFs! Alternatively, you can replace the GIF with anything you input in the search bar.
+Fetch GIFs from the GIPHY API. You can click on the button to fetch GIFs from the best show ever (The Office, obviously). Alternatively, you can replace the GIF with anything you input in the search bar.
 
 <img src="./imgs/webpage-screenshot.png" width="400">
 
