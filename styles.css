@@ -208,6 +208,11 @@ input:focus {
   border-color: #8690fa;
 }
 
+.input-error {
+  padding-left: 0.25rem;
+  color: #d70040;
+}
+
 footer {
   width: 100%;
   padding: 1rem;

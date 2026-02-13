@@ -29,15 +29,33 @@ theOfficeButton.addEventListener('click', () => {
 
 const searchButton = document.querySelector('.search-button');
 
+const input = document.querySelector('#search-gif');
+
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
 
-  const firstPartURL =
-    'https://api.giphy.com/v1/gifs/translate?api_key=WS8fTduxDBNQSn038pJMdV9KDMJ92HNG&s=';
+  if (!input.value) {
+    showInputError();
+  } else {
+    const firstPartURL =
+      'https://api.giphy.com/v1/gifs/translate?api_key=WS8fTduxDBNQSn038pJMdV9KDMJ92HNG&s=';
 
-  const input = document.querySelector('#search-gif').value;
+    const URL = firstPartURL + input.value;
 
-  const URL = firstPartURL + input;
+    getGif(URL);
+  }
+});
 
-  getGif(URL);
+let inputErrorSpan = document.querySelector('.input-error');
+
+function showInputError() {
+  inputErrorSpan.textContent = 'Search cannot be empty.';
+}
+
+input.addEventListener('input', () => {
+  if (input) {
+    inputErrorSpan.textContent = '';
+  } else {
+    showInputError();
+  }
 });
